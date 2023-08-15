@@ -43,7 +43,7 @@ public class Data {
         Data.speed = speed;
     }
 //    Class methods
-    public static void convertToMegabyte() {
+    public static short convertToMegabytes() {
 
         switch (unit) {
             case "bytes" -> megabyteAmount = (amount / 1024) / 1024;
@@ -52,26 +52,29 @@ public class Data {
             case "megabytes" -> megabyteAmount = amount;
             default -> throw new IllegalArgumentException();
         }
+        return 0;
     }
-    public static void calcDownloadTime()  {
-        convertToMegabyte();
+    public static short calculateDownloadTime()  {
+        convertToMegabytes();
         downloadTime = (megabyteAmount / speed) / 8;
+        return 0;
     }
-    public static void getFormattedTime(){
+    public static short getFormattedDownloadTime(){
         downloadTimeSeconds = downloadTime % 60;
         downloadTimeMinutes = (downloadTime - downloadTimeSeconds) / 60;
 
         DecimalFormat format = new DecimalFormat("#");
 
 
+        return 0;
     }
 
 
 //    toString using Class methods
     public String toString(){
-        convertToMegabyte();
-        calcDownloadTime();
-        getFormattedTime();
+        convertToMegabytes();
+        calculateDownloadTime();
+        getFormattedDownloadTime();
             return "Data" + amount + "" + unit +
                     "Your download time is: " + downloadTime;
     }
