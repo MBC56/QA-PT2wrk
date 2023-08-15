@@ -11,6 +11,8 @@ class DataTest {
         Data data2 = new Data(512, "kilobytes", 100);
         assertEquals(0.5, Data.convertToMegabytes(), 0.01);
 
+        //assert equals not working... the methods might have to be forced to static??
+
         Data data3 = new Data(1, "megabytes", 100);
         assertEquals(1.0, Data.convertToMegabytes(), 0.01);
 
@@ -25,6 +27,8 @@ class DataTest {
     void testCalculateDownloadTime() {
         Data data1 = new Data(1024, "kilobytes", 100);
         assertEquals(0.080, Data.calculateDownloadTime(), 0.01);
+
+        //might have to be changed to static
 
         Data data2 = new Data(512, "megabytes", 200);
         assertEquals(20.48, Data.calculateDownloadTime(), 0.01);

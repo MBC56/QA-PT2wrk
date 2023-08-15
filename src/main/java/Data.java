@@ -52,6 +52,7 @@ public class Data {
             case "megabytes" -> megabyteAmount = amount;
             default -> throw new IllegalArgumentException();
         }
+        //
         return 0;
     }
     public static short calculateDownloadTime()  {
