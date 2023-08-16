@@ -1,27 +1,17 @@
-import java.util.Scanner;
-
+import java.util.*;
 public class Main {
-    //Build a scanner
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        //Prompt and store double amount
-        System.out.println("Enter the amount of data: ");
-        double amount = scanner.nextDouble();
-        //Prompt and store String unit
-        System.out.println("Enter the unit (Bytes, kilobytes, megabytes, gigabytes) ");
-        String unit = scanner.nextLine();
-        //Prompt and store download speed (in megabits
-        System.out.println("Enter your download speed(In megabytes): ");
-        int speed = scanner.nextInt();
+        Data data1 = new Data(1024, "bytes", 100);
 
-        //Build a Data object with these three values
-        Data data = new Data(amount, unit, speed);
-        data.setAmount(amount);
-        data.setUnit(unit);
-        data.setSpeed(speed);
-        //Print out the data Object with your toString();
-        System.out.println(data);
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Enter the amount data");
+        data1.setAmount(Double.valueOf(input.nextLine()));
+
+        System.out.println("Enter the unit");
+        data1.setUnit(input.nextLine());
+
+        System.out.println("Enter the download speed (in megabits)");
+        data1.setDownloadSpeed(Integer.valueOf(input.nextLine()));
     }
-
-    }
-
+}
